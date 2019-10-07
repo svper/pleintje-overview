@@ -8,38 +8,18 @@
   ></iframe>
 </div>
 -->
-<div class="pleintje-match-list">
-  <div class="match-item">
-    <div class="match-lineup">
-      <div class="match-lineup-player">
-        <div class="player-number">1</div>
-        <div class="player-name">Vleugels M.</div>
-      </div>
-      <div class="match-lineup-player">
-        <div class="player-number">3</div>
-        <div class="player-name">Stassyns N.</div>
-      </div>
-      <div class="match-lineup-player">
-        <div class="player-number">5</div>
-        <div class="player-name">Verhulst R.</div>
-      </div>
-    </div>
-    <div class="match-stats">
-      <div class="match-stats-goal">
-        <div class="goal-minutes">5'</div>
-        <div class="goal-info">
-          <div class="goal-scorer">Verhulst R.</div>
-          <div class="goal-assist">Stassyns N.</div>
-        </div>
-      </div>
-      <div class="match-stats-goal">
-          <div class="goal-minutes">15'</div>
-          <div class="goal-info">
-            <div class="goal-scorer">De Ceuster S.</div>
-            <div class="goal-assist">Vleugels M.</div>
-          </div>
-        </div>
-    </div>
+
+<header>
+  <div class="container">
+    <nav>
+      <ul>
+        <li><a href="#" routerLink="/">Home</a></li>
+        <li><a href="#" routerLink="/stats">Season Stats</a></li>
+      </ul>
+    </nav>
   </div>
+</header>
+<div class="container">
+    <router-outlet></router-outlet>
 </div>
-<router-outlet></router-outlet>
+
