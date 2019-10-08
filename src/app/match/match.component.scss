@@ -1,0 +1,25 @@
+.match-item {
+  margin-bottom: 30px;
+
+  .match-left {
+    display: inline-block;
+    width: 30%;
+    .match-lineup {
+    }
+    .match-stats {
+    }
+  }
+  .match-right {
+    display: inline-block;
+    width: 59%;
+
+    vertical-align: top;
+
+    .match-video {
+      width: 500px;
+      iframe {
+        width: 500px;
+      }
+    }
+  }
+}

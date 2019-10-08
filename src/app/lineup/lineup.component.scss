@@ -1,0 +1,19 @@
+.match-lineup {
+    margin-bottom: 15px;
+    border: 1px solid black;
+    .match-lineup-player {
+      .player-number {
+        display: inline-block;
+        width: 25px;
+        text-align: center;
+        background-color: black;
+        color: white;
+        font-weight: bold;
+        padding: 0px 10px;
+      }
+      .player-name {
+        padding-left: 15px;
+        display: inline-block;
+      }
+    }
+  }
