@@ -1,7 +1,11 @@
 <div class="match-item">
+  <div class="match-endscore">
+      <div>FC Pleintje<span class="match-score us">{{match.score_us}}</span></div>
+      <div>{{match.opponent_name}}<span class="match-score">{{match.score_opponent}}</span></div>
+  </div>
   <div class="match-left">
-    <app-lineup></app-lineup>
-    <app-scoresheet></app-scoresheet>
+    <app-lineup [lineup]="match.lineup"></app-lineup>
+    <app-scoresheet [goals]="match.goals"></app-scoresheet>
   </div>
   <div class="match-right">
     <div class="match-video-summary">

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,Input} from '@angular/core';
 
 @Component({
   selector: 'app-match',
@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./match.component.scss']
 })
 export class MatchComponent implements OnInit {
+  @Input() match: any;
 
   constructor() { }
 
   ngOnInit() {
+    console.log(this.match);
   }
 
 }

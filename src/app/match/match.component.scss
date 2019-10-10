@@ -1,6 +1,15 @@
 .match-item {
   margin-bottom: 30px;
 
+  .match-endscore{
+    width: 30%;
+    .match-score{
+      float:right;
+      &.us{
+        font-weight: bold;
+      }
+    }
+  }
   .match-left {
     display: inline-block;
     width: 30%;

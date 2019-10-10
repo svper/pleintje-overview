@@ -1,14 +1,7 @@
-<div class="match-lineup">
-    <div class="match-lineup-player">
-      <div class="player-number">1</div>
-      <div class="player-name">Vleugels M.</div>
-    </div>
-    <div class="match-lineup-player">
-      <div class="player-number">3</div>
-      <div class="player-name">Stassyns N.</div>
-    </div>
-    <div class="match-lineup-player">
-      <div class="player-number">5</div>
-      <div class="player-name">Verhulst R.</div>
+<div class="match-lineup" *ngIf="lineup">
+    <div class="match-lineup-player" *ngFor="let player of lineup">
+      <div class="player-number">{{player.shirt_number}}</div>
+      <div class="player-name">{{player.player.last_name}} {{player.player.first_name | slice:0:1}}.</div>
     </div>
   </div>
+    
