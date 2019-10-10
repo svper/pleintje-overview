@@ -42,8 +42,8 @@ function getMatches(){
 	$matches = array();
 	while ($match = mysqli_fetch_object($result)) {
 		//get the team
-		$match["lineup"] = getLineup($match->id);
-		$match["goals"] = getGoals($match->id);
+		$match->lineup = getLineup($match->id);
+		$match->goals = getGoals($match->id);
 		$matches[] = $match;
 	}
 	return $matches;
@@ -57,19 +57,13 @@ function getLineup($matchid){
 		die("Connection failed: " . $conn->connect_error);
 	}
 	$sql = "SELECT * FROM `lineup` WHERE match_id = " .$matchid;
-	echo '<br>matchid '. $matchid;
-	echo $sql;
 	$conn->query('SET CHARACTER SET utf8');
 	$result = $conn->query($sql);
 	$lineup = array();
 	while ($player_lineup = mysqli_fetch_object($result)) {
-		echo $player_lineup->player_id . '<br> TUDU';
-		$player_lineup["player"] = getPlayer($player_lineup->player_id);
-		$lineup[] = $player_lineup;
-		echo $player_lineup->player_id . '<br> TUDU';
+		$player_lineup->player = getPlayer($player_lineup->player_id);
+		$lineup[] = $player_lineup;		
 	}
-	echo 'lineups <br>';
-	print_r($lineup);
 	return $lineup;
 }
 
@@ -86,8 +80,12 @@ function getGoals($matchid){
 	$result = $conn->query($sql);
 	$goals = array();
 	while ($goal = mysqli_fetch_assoc($result)) {
-		$goal["scorer"] = getPlayer($goal->scorer_id);
-		$goal["assist"] = getPlayer($goal->assist_id);
+		if(isset($goal["scorer_id"])){
+			$goal["scorer"] = getPlayer($goal["scorer_id"]);
+		}
+		if(isset($goal["assist_id"])){
+			$goal["assist"] = getPlayer($goal["assist_id"]);
+		}
 		$goals[] = $goal;
 	}
 	return $goals;
@@ -101,14 +99,9 @@ function getPlayer($playerid){
 		die("Connection failed: " . $conn->connect_error);
 	}
 	$sql = "SELECT * FROM `player` WHERE id = " . $playerid;
-	
-	echo '<br>playerid '. $playerid;
-	echo $sql;
-
 	$conn->query('SET CHARACTER SET utf8');
 	$result = $conn->query($sql);
-	$player = mysqli_fetch_object($result);
+	$player = mysqli_fetch_assoc($result);
 	return $player;
 }
-
 ?>
