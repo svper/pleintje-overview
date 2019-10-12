@@ -9,6 +9,7 @@ import { StatsComponent } from "./stats/stats.component";
 import { LineupComponent } from "./lineup/lineup.component";
 import { ScoresheetComponent } from "./scoresheet/scoresheet.component";
 import { MatchComponent } from "./match/match.component";
+import { SafePipe } from "./safe.pipe";
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { MatchComponent } from "./match/match.component";
     StatsComponent,
     LineupComponent,
     ScoresheetComponent,
-    MatchComponent
+    MatchComponent,
+    SafePipe
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],

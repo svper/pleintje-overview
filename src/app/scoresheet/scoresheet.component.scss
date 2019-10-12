@@ -1,34 +1,43 @@
 .match-stats {
-    border: 1px solid black;
-    .match-stats-goal {
-      .goal-minutes {
-        display: inline-block;
-        width: 25px;
-        text-align: center;
-        background-color: black;
-        color: white;
-        vertical-align: top;
-        height: 100%;
-        font-weight: bold;
-        padding: 0px 10px;
+  border: 1px solid black;
+
+  .match-stats-goal {
+    .goal-minutes {
+      display: inline-block;
+      width: 25px;
+      text-align: center;
+      background-color: black;
+      color: white;
+      vertical-align: top;
+      height: 100%;
+      font-weight: bold;
+      padding: 0px 10px;
+    }
+
+    .goal-score {
+      display: inline-block;
+      width: 50px;
+      text-align: center;
+      vertical-align: top;
+      height: 100%;
+      font-weight: bold;
+      padding: 0px 10px;
+
+      &.enemy-goal {
+        color: red;
       }
-      .goal-score {
-        display: inline-block;
-        width: 50px;
-        text-align: center;
-        vertical-align: top;
-        height: 100%;
+    }
+
+    .goal-info {
+      display: inline-block;
+
+      .goal-scorer {
         font-weight: bold;
-        padding: 0px 10px;
       }
-      .goal-info {
-        display: inline-block;
-        .goal-scorer {
-          font-weight: bold;
-        }
-        .goal-assist {
-          font-style: italic;
-        }
+
+      .goal-assist {
+        font-style: italic;
       }
     }
   }
+}

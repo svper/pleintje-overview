@@ -1,10 +1,12 @@
 <div class="match-stats" *ngIf="goals">
   <div class="match-stats-goal" *ngFor="let goal of goals">
     <div class="goal-minutes">{{goal.minute}}'</div>
-    <div class="goal-score">{{goal.score}}</div>
+    <div class="goal-score" [ngClass]="{'enemy-goal': !goal.scorer}">{{goal.score}}</div>
     <div class="goal-info">
-      <div class="goal-scorer" *ngIf="goal.scorer">{{goal.scorer.last_name}} {{goal.scorer.first_name | slice:0:1}}.</div>
-      <div class="goal-assist" *ngIf="goal.assist">{{goal.assist.last_name}} {{goal.assist.first_name | slice:0:1}}.</div>
+      <div class="goal-scorer" *ngIf="goal.scorer">{{goal.scorer.last_name}} {{goal.scorer.first_name | slice:0:1}}.
+      </div>
+      <div class="goal-assist" *ngIf="goal.assist">{{goal.assist.last_name}} {{goal.assist.first_name | slice:0:1}}.
+      </div>
     </div>
   </div>
 </div>

@@ -14,7 +14,7 @@ export class PhpService {
   }
 
   getStats() {
-    return this.http.get("http://pleintje.verhu.be/getMatches.php");
+    return this.http.get("http://pleintje.verhu.be/getStats.php");
   }
 
   getLocalStats() {

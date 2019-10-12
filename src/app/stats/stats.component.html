@@ -1,1 +1,18 @@
-<p>stats works!</p>
+<table>
+    <thead>
+        <th>Rank</th>
+        <th>Name</th>
+        <th>Goals</th>
+        <th>Assists</th>
+        <th>Points</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let player of stats;let idx = index ">
+            <td>{{idx+1}}</td>
+            <td>{{player.last_name}} {{player.first_name}}</td>
+            <td>{{player.goals}}</td>
+            <td>{{player.assists}}</td>
+            <td>{{player.points}}</td>
+        </tr>
+    </tbody>
+</table>
