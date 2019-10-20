@@ -2,17 +2,31 @@
     <thead>
         <th>Rank</th>
         <th>Name</th>
+        <th>Games</th>
         <th>Goals</th>
         <th>Assists</th>
+        <th>Clean Sheets</th>
+        <th>Keeper CS</th>
         <th>Points</th>
     </thead>
     <tbody>
         <tr *ngFor="let player of stats;let idx = index ">
             <td>{{idx+1}}</td>
             <td>{{player.last_name}} {{player.first_name}}</td>
+            <td>{{player.games_played}}</td>
             <td>{{player.goals}}</td>
             <td>{{player.assists}}</td>
+            <td>{{player.clean_sheets}}</td>
+            <td>{{player.keeper_clean_sheets}}</td>
             <td>{{player.points}}</td>
         </tr>
     </tbody>
 </table>
+<div>
+    <ul>
+        <li>Assist: 3 pts</li>
+        <li>Goal: 4 pts</li>
+        <li>Clean Sheet: 5 pts</li>
+        <li>Keeper Clean Sheet: 10 pts</li>
+    </ul>
+</div>

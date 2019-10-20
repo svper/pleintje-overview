@@ -17,7 +17,11 @@ export class StatsComponent implements OnInit {
       this.stats = data as any;
 
       this.stats.forEach(player => {
-        player.points = player.goals * 4 + player.assists * 3;
+        player.points =
+          player.goals * 4 +
+          player.assists * 3 +
+          player.clean_sheets * 5 +
+          player.keeper_clean_sheets * 10;
       });
 
       this.stats.sort((n1, n2) => {

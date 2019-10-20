@@ -41,8 +41,60 @@ function getStats(){
 	$result = $conn->query($sql);
 	$stats = array();
 	while ($stat = mysqli_fetch_object($result)) {
+        $stat->clean_sheets = getPlayerCleanSheets($stat->player_id);
+        $stat->keeper_clean_sheets = getKeeperCleanSheets($stat->player_id);
+        $stat->games_played = getPlayedGamesForPlayer($stat->player_id);
 		$stats[] = $stat;
 	}
 	return $stats;
+}
+
+function getPlayedGamesForPlayer($playerid){
+	// 	Create connection
+	$conn = connect();
+	// 	Check connection
+	if ($conn->connect_error) {
+		die("Connection failed: " . $conn->connect_error);
+	}
+	$sql = "SELECT COUNT(*) as cnt FROM `lineup` WHERE player_id = " . $playerid ;
+	
+	$conn->query('SET CHARACTER SET utf8');
+	$result = $conn->query($sql);
+    while ($stat = mysqli_fetch_object($result)) {
+		return $stat->cnt;
+	}
+}
+
+
+function getPlayerCleanSheets($playerid){
+	// 	Create connection
+	$conn = connect();
+	// 	Check connection
+	if ($conn->connect_error) {
+		die("Connection failed: " . $conn->connect_error);
+	}
+	$sql = "SELECT COUNT(*) as cnt FROM `lineup` l ,`match` m WHERE l.player_id = " . $playerid . " AND l.match_id = m.id AND m.score_opponent = 0 AND l.shirt_number > 1 ";
+	
+	$conn->query('SET CHARACTER SET utf8');
+	$result = $conn->query($sql);
+    while ($stat = mysqli_fetch_object($result)) {
+		return $stat->cnt;
+	}
+}
+
+function getKeeperCleanSheets($playerid){
+	// 	Create connection
+	$conn = connect();
+	// 	Check connection
+	if ($conn->connect_error) {
+		die("Connection failed: " . $conn->connect_error);
+	}
+	$sql = "SELECT COUNT(*) as cnt FROM `lineup` l ,`match` m WHERE l.player_id = " . $playerid . " AND l.match_id = m.id AND m.score_opponent = 0 AND l.shirt_number = 1 ";
+	
+	$conn->query('SET CHARACTER SET utf8');
+	$result = $conn->query($sql);
+	while ($stat = mysqli_fetch_object($result)) {
+		return $stat->cnt;
+	}
 }
 ?>

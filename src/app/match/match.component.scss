@@ -1,23 +1,27 @@
 .match-item {
   margin-bottom: 30px;
 
-  .match-endscore{
+  .match-endscore {
     width: 30%;
-    .match-score{
-      float:right;
-      &.us{
+
+    .match-score {
+      float: right;
+
+      &.us {
         font-weight: bold;
       }
     }
   }
+
   .match-left {
     display: inline-block;
     width: 30%;
-    .match-lineup {
-    }
-    .match-stats {
-    }
+
+    .match-lineup {}
+
+    .match-stats {}
   }
+
   .match-right {
     display: inline-block;
     width: 59%;
@@ -25,8 +29,11 @@
     vertical-align: top;
 
     .match-video {
+      padding-left: 50px;
       width: 500px;
+
       iframe {
+        min-height: 280px;
         width: 500px;
       }
     }
