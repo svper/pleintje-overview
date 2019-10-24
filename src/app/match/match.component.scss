@@ -2,8 +2,6 @@
   margin-bottom: 30px;
 
   .match-endscore {
-    width: 30%;
-
     .match-score {
       float: right;
 
@@ -14,27 +12,24 @@
   }
 
   .match-left {
-    display: inline-block;
-    width: 30%;
 
     .match-lineup {}
 
-    .match-stats {}
+    .match-stats {
+      margin-bottom: 15px;
+    }
   }
 
   .match-right {
-    display: inline-block;
-    width: 59%;
 
     vertical-align: top;
 
     .match-video {
-      padding-left: 50px;
-      width: 500px;
+      //width: 500px;
 
       iframe {
         min-height: 280px;
-        width: 500px;
+        //width: 500px;
       }
     }
   }

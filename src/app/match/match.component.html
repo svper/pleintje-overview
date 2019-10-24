@@ -1,17 +1,31 @@
 <div class="match-item">
-  <div class="match-endscore">
-    <div>FC Pleintje<span class="match-score us">{{match.score_us}}</span></div>
-    <div>{{match.opponent_name}}<span class="match-score">{{match.score_opponent}}</span></div>
+  <div class="match-info-top row">
+    <div class="match-endscore col-xs-12 col-lg-6">
+      <div>
+        FC Pleintje<span class="match-score us">{{ match.score_us }}</span>
+      </div>
+      <div>
+        {{ match.opponent_name
+        }}<span class="match-score">{{ match.score_opponent }}</span>
+      </div>
+    </div>
   </div>
-  <div class="match-left">
-    <app-lineup [lineup]="match.lineup"></app-lineup>
-    <app-scoresheet [goals]="match.goals"></app-scoresheet>
-  </div>
-  <div class="match-right">
-    <div class="match-video-summary">
-      <div class="match-video">
-        <iframe [src]="match.summary_embed_url | safe" frameborder="0"
-          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+  <div class="match-info-bottom row">
+    <div class="match-left col-xs-12 col-lg-6">
+      <app-lineup [lineup]="match.lineup"></app-lineup>
+      <app-scoresheet [goals]="match.goals"></app-scoresheet>
+    </div>
+    <div class="match-right col-xs-12 col-lg-6">
+      <div class="match-video-summary">
+        <div class="match-video">
+          <iframe
+            [src]="match.summary_embed_url | safe"
+            frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
       </div>
     </div>
   </div>

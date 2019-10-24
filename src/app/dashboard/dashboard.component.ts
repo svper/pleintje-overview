@@ -11,12 +11,10 @@ export class DashboardComponent implements OnInit {
   constructor(private _php: PhpService) {}
 
   ngOnInit() {
-    //this.matches = this._php.getLocalMatches();
+    //this.matches = this._php.getLocalMatches().reverse();
     this._php.getMatches().subscribe(data => {
       this.matches = data as any;
       this.matches.reverse();
-
-      console.log(this.matches);
     });
   }
 }

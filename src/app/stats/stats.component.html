@@ -1,32 +1,36 @@
-<table>
+<table class="table table-sm table-borderless table-striped">
     <thead>
-        <th>Rank</th>
+        <th><span class="d-block d-sm-none">#</span><span class="d-none d-sm-block">Rank</span></th>
         <th>Name</th>
-        <th>Games</th>
-        <th>Goals</th>
-        <th>Assists</th>
-        <th>Clean Sheets</th>
-        <th>Keeper CS</th>
-        <th>Points</th>
+        <th><span class="d-block d-sm-none">P</span><span class="d-none d-sm-block">Played</span></th>
+        <th><span class="d-block d-sm-none">G</span><span class="d-none d-sm-block">Goals</span></th>
+        <th><span class="d-block d-sm-none">A</span><span class="d-none d-sm-block">Assists</span></th>
+        <th><span class="d-block d-sm-none">CS</span><span class="d-none d-sm-block">Clean Sheets</span></th>
+        <th><span class="d-block d-sm-none">GK</span><span class="d-none d-sm-block">GK Played</span></th>
+        <th><span class="d-block d-sm-none">GK CS</span><span class="d-none d-sm-block">GK Clean Sheets</span></th>
+        <th><span class="d-block d-sm-none">Pts</span><span class="d-none d-sm-block">Points</span></th>
     </thead>
     <tbody>
-        <tr *ngFor="let player of stats;let idx = index ">
+        <tr *ngFor="let player of stats;let idx = index " class="">
             <td>{{idx+1}}</td>
-            <td>{{player.last_name}} {{player.first_name}}</td>
-            <td>{{player.games_played}}</td>
+            <td><span class="d-block d-sm-none">{{player.first_name}} {{player.last_name | slice:0:1}}.</span><span class="d-none d-sm-block">{{player.last_name}} {{player.first_name}}</span></td>
+            <td>{{player.games}}</td> 
             <td>{{player.goals}}</td>
             <td>{{player.assists}}</td>
             <td>{{player.clean_sheets}}</td>
-            <td>{{player.keeper_clean_sheets}}</td>
+            <td>{{player.keeper_games}}</td>
+            <td>{{player.keeper_cs}}</td>
             <td>{{player.points}}</td>
         </tr>
     </tbody>
 </table>
+<br><br>
 <div>
     <ul>
         <li>Assist: 3 pts</li>
         <li>Goal: 4 pts</li>
         <li>Clean Sheet: 5 pts</li>
-        <li>Keeper Clean Sheet: 10 pts</li>
+        <li>GK Clean Sheet: 10 pts</li>
+        <li>GK Played: 2 pts</li>
     </ul>
 </div>

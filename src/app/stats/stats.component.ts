@@ -12,7 +12,23 @@ export class StatsComponent implements OnInit {
   constructor(private _php: PhpService) {}
 
   ngOnInit() {
-    //this.stats = this._php.getLocalStats();
+    /*
+    this.stats = this._php.getLocalStats();
+    this.stats.forEach(player => {
+      player.points =
+        player.goals * 4 +
+        player.assists * 3 +
+        player.clean_sheets * 5 +
+        player.keeper_games * 2 +
+        player.keeper_cs * 10;
+    });
+
+    this.stats.sort((n1, n2) => {
+      return n2.points - n1.points;
+    });
+
+*/
+
     this._php.getStats().subscribe(data => {
       this.stats = data as any;
 
@@ -21,13 +37,13 @@ export class StatsComponent implements OnInit {
           player.goals * 4 +
           player.assists * 3 +
           player.clean_sheets * 5 +
-          player.keeper_clean_sheets * 10;
+          player.keeper_games * 3 +
+          player.keeper_cs * 10;
       });
 
       this.stats.sort((n1, n2) => {
         return n2.points - n1.points;
       });
-      console.log(this.stats);
     });
   }
 }

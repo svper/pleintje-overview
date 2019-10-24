@@ -1,5 +1,5 @@
 <div class="match-lineup" *ngIf="lineup">
-    <div class="match-lineup-player" *ngFor="let player of lineup">
+    <div class="match-lineup-player" *ngFor="let player of sortLineup(lineup)">
       <div class="player-number">{{player.shirt_number}}</div>
       <div class="player-name">{{player.player.last_name}} {{player.player.first_name | slice:0:1}}.</div>
     </div>

@@ -1,6 +1,6 @@
 .match-stats {
   border: 1px solid black;
-
+  margin-bottom: 15px;
   .match-stats-goal {
     .goal-minutes {
       display: inline-block;
@@ -12,6 +12,7 @@
       height: 100%;
       font-weight: bold;
       padding: 0px 10px;
+      min-width: 38px;
     }
 
     .goal-score {

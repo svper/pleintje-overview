@@ -41,9 +41,6 @@ function getStats(){
 	$result = $conn->query($sql);
 	$stats = array();
 	while ($stat = mysqli_fetch_object($result)) {
-        $stat->clean_sheets = getPlayerCleanSheets($stat->player_id);
-        $stat->keeper_clean_sheets = getKeeperCleanSheets($stat->player_id);
-        $stat->games_played = getPlayedGamesForPlayer($stat->player_id);
 		$stats[] = $stat;
 	}
 	return $stats;
