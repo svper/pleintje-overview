@@ -37,8 +37,9 @@ export class StatsComponent implements OnInit {
           player.goals * 4 +
           player.assists * 3 +
           player.clean_sheets * 5 +
-          player.keeper_games * 3 +
+          player.keeper_games * 2 +
           player.keeper_cs * 10;
+          player.ppm = (player.points / player.games).toFixed(1);
       });
 
       this.stats.sort((n1, n2) => {
