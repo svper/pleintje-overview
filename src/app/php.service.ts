@@ -7,16 +7,107 @@ import { HttpClient } from "@angular/common/http";
 export class PhpService {
   localMatches: any[];
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getMatches() {
     return this.http.get("http://pleintje.verhu.be/getMatches.php");
+  }
+
+  getMatchData() {
+    return this.http.get("http://pleintje.verhu.be/getMatchData.php");
+  }
+
+  getPlayers() {
+    return this.http.get("http://pleintje.verhu.be/getPlayers.php");
   }
 
   getStats() {
     return this.http.get("http://pleintje.verhu.be/getStats.php");
   }
 
+
+  saveLineup(data) {
+    this.http.post('http://pleintje.verhu.be/saveLineup.php', data)
+      .subscribe(
+        (res: Response) => {
+          console.log(res.json());
+        },
+        err => {
+          console.log("Error occured");
+        });
+  }
+
+
+
+  getLocalPlayers() {
+    return [
+      {
+        id: "1",
+        first_name: "Robin",
+        last_name: "Verhulst"
+      },
+      {
+        id: "2",
+        first_name: "Sven",
+        last_name: "Stassyns"
+      },
+      {
+        id: "3",
+        first_name: "Nielsen",
+        last_name: "Stassyns"
+      },
+      {
+        id: "4",
+        first_name: "Sven",
+        last_name: "De Ceuster"
+      },
+      {
+        id: "5",
+        first_name: "Stefan",
+        last_name: "Haemhouts"
+      },
+      {
+        id: "6",
+        first_name: "Filip",
+        last_name: "Vermeiren"
+      },
+      {
+        id: "7",
+        first_name: "Jan",
+        last_name: "Verlinden"
+      },
+      {
+        id: "8",
+        first_name: "Jonas",
+        last_name: "Donckers"
+      },
+      {
+        id: "9",
+        first_name: "Glenn",
+        last_name: "Van Croonenborch"
+      },
+      {
+        id: "10",
+        first_name: "Remko",
+        last_name: "Gielen"
+      },
+      {
+        id: "11",
+        first_name: "Philip",
+        last_name: "Hermans"
+      },
+      {
+        id: "12",
+        first_name: "Michael",
+        last_name: "Vleugels"
+      },
+      {
+        id: "13",
+        first_name: "Vincent",
+        last_name: "Veys"
+      }
+    ];
+  }
   getLocalStats() {
     return [
       {
@@ -154,7 +245,7 @@ export class PhpService {
     ];
   }
 
-  getLocalMatches() {
+  getLocalMatchData() {
     return [
       {
         id: "1",

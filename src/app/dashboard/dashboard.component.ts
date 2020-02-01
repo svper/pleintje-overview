@@ -8,11 +8,11 @@ import { PhpService } from "../php.service";
 })
 export class DashboardComponent implements OnInit {
   matches: any[];
-  constructor(private _php: PhpService) {}
+  constructor(private _php: PhpService) { }
 
   ngOnInit() {
     //this.matches = this._php.getLocalMatches().reverse();
-    this._php.getMatches().subscribe(data => {
+    this._php.getMatchData().subscribe(data => {
       this.matches = data as any;
       this.matches.reverse();
     });

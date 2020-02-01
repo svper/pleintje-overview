@@ -1,0 +1,35 @@
+<div>
+    <h3>Lineup</h3>
+    <br>
+    <button (click)="addPlayer()">+ Add Player</button>
+    <br>
+    <br>
+    <div>
+        <form [formGroup]="lineupForm" (ngSubmit)="onSubmit()">
+            <div class="form-group row">
+                <select formControlName="match">
+                    <option [value]="null">Select Match</option>
+                    <option [value]="match.id" *ngFor="let match of matches">{{match.opponent_name}} - {{match.date}}
+                    </option>
+                </select>
+
+            </div>
+
+            <div class="form-group row" formArrayName="linedupPlayers"
+                *ngFor="let item of lineupForm.get('linedupPlayers')['controls']; let i = index;">
+                <div [formGroupName]="i"> <select formControlName="id">
+                        <option [value]="null" selected>Select Player</option>
+                        <option [value]="player.id" *ngFor="let player of players">{{player.first_name}}
+                            {{player.last_name}}
+                        </option>
+                    </select>
+                    <input type="number" placeholder="number" formControlName="number">
+                    <input type="checkbox" formControlName="isKeeper" title="is keeper?">
+                </div>
+            </div>
+            <div class="form-group row">
+                <button>Submit</button>
+            </div>
+        </form>
+    </div>
+</div>

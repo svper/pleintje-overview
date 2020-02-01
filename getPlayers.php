@@ -1,6 +1,6 @@
 <?php
 
-echo json_encode(getMatches());
+echo json_encode(getPlayers());
 
 function escape($conn, $input)
 {
@@ -27,7 +27,7 @@ function connect()
     return $conn;
 }
 
-function getMatches()
+function getPlayers()
 {
     //     Create connection
     $conn = connect();
@@ -35,13 +35,12 @@ function getMatches()
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
-    $sql = "SELECT * FROM `match`";
-
+    $sql = "SELECT * FROM `player`";
     $conn->query('SET CHARACTER SET utf8');
     $result = $conn->query($sql);
-    $matches = array();
-    while ($match = mysqli_fetch_object($result)) {
-        $matches[] = $match;
+    $players = array();
+    while ($player = mysqli_fetch_object($result)) {
+        $players[] = $player;
     }
-    return $matches;
+    return $players;
 }
